@@ -1,20 +1,19 @@
 <?php
+
 session_start();
 $_SESSION['message'];
 $_SESSION['msg_type'];
-// Foursquare API Info
-$clientId = '';
-$clientSecret = '';
+
+// import api keys and Client Secrets
+include 'apis.php';
+
+// Foursquare Endpoint
 $url = 'https://api.foursquare.com/v2/venues/explore?near=';
 //$urlToFetch = '$url$city&limit=10&client_id=$clientId&client_secret=$clientSecret&v=20180101';
 
-
-// OpenWeather Info
-$openWeatherKey = '';
+// OpenWeather Endpoint
 $weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
 // JS urlToFetch = `${weatherUrl}?&q=${$input.val()}&APPID=${openWeatherKey}`
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -65,6 +64,7 @@ $weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
             <?php endif; ?>
         </div>
     </form>
+
 
     
 
