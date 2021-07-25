@@ -13,6 +13,7 @@
 body {
     background-color: #EEEDED;
     font-family: 'Roboto Slab', serif;
+    width: 100vw;
 }
 
 h1 {
@@ -20,7 +21,7 @@ h1 {
     margin-top: 1rem;
     margin-bottom: 2rem;
     text-decoration: underline;
-    color: #A20A0A;
+    color: #403949;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -29,7 +30,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #A20A0A;
+    color: #403949;
     font-weight: 900;
 }
 
@@ -38,7 +39,7 @@ h1 {
     height: 1.625rem;
     text-align: center;
     border-radius: 1rem;
-    border: 0.0625rem solid #A20A0A;
+    border: 0.0625rem solid #403949;
     margin-top: 1rem;
 }
 
@@ -51,5 +52,95 @@ h1 {
     margin-left: 50%;
     transform: translateX(-50%);
     color: #fff;
-    background-color: #A20A0A;
+    background-color: #403949;
 }
+
+
+/* Format Error message */
+
+.failure {
+    background-color: #be1616;
+    color: #EEEDED;
+    width: 80vw;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0.1875rem 0.1875rem 0.3125rem #555555;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.top-att-text {
+    color: #403949;
+}
+
+.card {
+    width: 90vw;
+    background-color: #403949;
+    box-shadow: 2px 3px 4px #555555;
+    border-radius: 1rem;
+    color: #EEEDED;
+    padding: 1rem;
+}
+
+.card:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    text-decoration: underline;
+    margin-bottom: .625rem;
+}
+
+.adress {
+    padding: 0 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.225rem;
+    margin: 1rem 0;
+}
+
+.gmaps {
+    font-size: 0.9375rem;
+}
+
+.gmaps a {
+    background-color: #bd5858;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #EEEDED;
+    font-weight: 900;
+    padding: 0.625rem;
+    border-radius: 1rem;
+}
+
+.top-att-text {
+    margin-bottom: 1rem;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+
+/* Card styles 
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-self: center;
+    margin: 0rem 5rem;
+    background-color: chocolate;
+    color: #EEEDED;
+}
+.card {
+    background-color: #A20A0A;
+    padding: 1rem;
+    margin: 1rem;
+}
+*/

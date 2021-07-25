@@ -33,24 +33,27 @@ session_start();
             if(!preg_match('/^[a-zA-Z]+$/', $city)){
                 // create the message content with a msg_type for Bootstrap 5
                 $_SESSION['message'] = 'Incorrect input. Enter the name of a city correctly in English.';
-                $_SESSION['msg_type'] = 'danger';
+                $_SESSION['msg_type'] = 'failure';
+                $city = '';
                 }
             }
             ?>
         </div>
     </form>
 
-    <!-- If User type a name of City then Show Results  -->
-    <?php 
-        if(isset($city)){
-            include 'result.php';
-        }
-    ?>
+    <!-- Show venues -->
+    <div class="container">
+        <?php 
+            if(isset($city)){
+                include 'result.php';
+            }
+        ?>
+    </div>
 
 
     <!-- formatting/Styling the error message -->
     <?php if(isset($_SESSION['message'])): ?>
-        <div class="alert alert-<?= $_SESSION['msg_type']?> position-absolute top-100 start-80 mt-3 text-center">
+        <div class="<?= $_SESSION['msg_type']?>">
     <?php
         echo $_SESSION['message'];
         unset($_SESSION['message']);
