@@ -126,21 +126,3 @@ h1 {
     font-weight: 900;
     text-decoration: underline;
 }
-
-
-/* Card styles 
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-self: center;
-    margin: 0rem 5rem;
-    background-color: chocolate;
-    color: #EEEDED;
-}
-.card {
-    background-color: #A20A0A;
-    padding: 1rem;
-    margin: 1rem;
-}
-*/
