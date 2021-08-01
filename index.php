@@ -53,11 +53,13 @@ session_start();
 
     <!-- formatting/Styling the error message -->
     <?php if(isset($_SESSION['message'])): ?>
-        <div class="<?= $_SESSION['msg_type']?>">
-    <?php
-        echo $_SESSION['message'];
-        unset($_SESSION['message']);
-    ?>
+        <div>
+            <p class="<?= $_SESSION['msg_type']?>">
+                <?php
+                    echo $_SESSION['message'];
+                    unset($_SESSION['message']);
+                ?>
+            </p>
         </div>
     <?php endif; ?>
   </body>

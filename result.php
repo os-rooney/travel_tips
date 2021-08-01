@@ -16,7 +16,12 @@ $openWeather = $weatherUrl. '?&q='.$city.'&APPID='.$openWeatherKey;
 /* ***********************************
 OpenWeather API call and show Results
 ************************************ */
+$ow = curl_init();
 
+// set the URL and other options
+curl_setopt_array($ow, array(
+    
+));
 
 
 

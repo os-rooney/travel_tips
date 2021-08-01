@@ -1,9 +1,12 @@
-/* reset Styles */
-
-
 /*  ? Import Google fonts */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;800&family=Roboto:wght@400;900&display=swap');
+
+/* 
+? Mobile first
+reset Styles
+*/
+
 * {
     margin: 0;
     padding: 0;
@@ -61,11 +64,12 @@ h1 {
 .failure {
     background-color: #be1616;
     color: #EEEDED;
-    width: 80vw;
+    width: 75vw;
     margin: 0 auto;
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0.1875rem 0.1875rem 0.3125rem #555555;
+    text-align: center;
 }
 
 .container {
@@ -125,4 +129,53 @@ h1 {
     margin-bottom: 1rem;
     font-weight: 900;
     text-decoration: underline;
+}
+
+
+/*
+? Style for Screens wider than 400px
+*/
+
+@media screen and (min-width: 25em) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .card {
+        width: 40vw;
+        margin: 0rem 1rem;
+        min-height: 15rem;
+        position: relative;
+    }
+    .card:last-child {
+        margin-bottom: 1rem;
+    }
+    .top-att-text {
+        display: block;
+        width: 90vw;
+        text-align: center;
+    }
+    .gmaps a {
+        position: absolute;
+        width: 75%;
+        bottom: 1rem;
+    }
+}
+
+
+/*
+? Style for Screens up to 10.5 inch
+*/
+
+@media screen and (min-width: 68.75em) {
+    .container {
+        justify-content: center;
+    }
+    .card {
+        width: 25vw;
+    }
 }
