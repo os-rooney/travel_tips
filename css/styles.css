@@ -172,10 +172,32 @@ h1 {
 */
 
 @media screen and (min-width: 68.75em) {
+    h1 {
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+    .input-field {
+        height: 2rem;
+        border-radius: 1rem;
+        border: 0.125rem solid #403949;
+        margin-top: 2rem;
+    }
+    #btn {
+        padding: .525rem 1.825rem;
+        margin-top: 1.4rem;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
     .container {
         justify-content: center;
+        margin-top: 4em;
     }
     .card {
         width: 25vw;
+        text-align: center;
+    }
+    .top-att-text {
+        font-size: 2rem;
     }
 }
