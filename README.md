@@ -10,6 +10,7 @@ The Web app should be able to:
 
 ### Continued Development
 
+- Show Weather informations
 - Save user input to obtain statistics. e.g. the top 3 cities searched for.
 
 ### Useful resources
