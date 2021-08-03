@@ -3,7 +3,7 @@
 Travel Tips suggests a few interesting locations to visit based on the entered city name and shows the current weather in the city. 
 
 ## Overview
-
+![Screenshot Travel Tips](https://raw.githubusercontent.com/os-rooney/travel_tips/main/img/Screenshot_Travel_Tips.png)
 
 ### The challenge 
 
