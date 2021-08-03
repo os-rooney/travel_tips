@@ -2,9 +2,6 @@
 
 Travel Tips suggests a few interesting locations to visit based on the entered city name and shows the current weather in the city. 
 
-## Overview
-![Screenshot Travel Tips](https://raw.githubusercontent.com/os-rooney/travel_tips/main/img/Screenshot_Travel_Tips.png)
-
 ### The challenge 
 
 The Web app should be able to:
@@ -33,3 +30,12 @@ The Web app should be able to:
 - Website - [Rooney Os.](https://www.ronios.de)
 - Website - [Project](https://travel.ronios.de)
 
+## Overview
+### Mobile View
+![Screenshot Travel Tips for Mobiles](https://raw.githubusercontent.com/os-rooney/travel_tips/main/img/Screenshot_mobile.png)
+
+#### Desktop View
+![Screenshot Travel Tips for desktops](https://raw.githubusercontent.com/os-rooney/travel_tips/main/img/Screenshot_desktop.png)
+
+#### Ipad/Tab View
+![Screenshot Travel Tips for Ipads and Tabs](https://raw.githubusercontent.com/os-rooney/travel_tips/main/img/Screenshot_ipad.png)
