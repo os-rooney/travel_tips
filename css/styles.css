@@ -44,6 +44,12 @@ h1 {
     border-radius: 1rem;
     border: 0.0625rem solid #403949;
     margin-top: 1rem;
+    outline: none;
+}
+
+.input-field:focus {
+    border: none;
+    outline: none;
 }
 
 #btn {
@@ -64,13 +70,63 @@ h1 {
 .failure {
     background-color: #be1616;
     color: #EEEDED;
-    width: 75vw;
+    width: 55vw;
     margin: 0 auto;
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0.1875rem 0.1875rem 0.3125rem #555555;
     text-align: center;
 }
+
+
+/*
+? Weather Card Styles
+*/
+
+h2.weather {
+    text-align: center;
+    font-weight: 900;
+    text-decoration: underline;
+    margin-bottom: 1rem;
+    color: #403949;
+}
+
+.weather-card {
+    background-color: #403949;
+    color: #EEEDED;
+    width: 75vw;
+    position: relative;
+    padding: 1rem;
+    box-shadow: 2px 3px 4px #555555;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 2px 3px 4px #555555;
+}
+
+.weather-card h4 {
+    text-align: center;
+    font-size: 1rem;
+    letter-spacing: 0.05rem;
+    margin-bottom: 1rem;
+}
+
+.main-weather-val {
+    font-size: 1.6rem;
+}
+
+.humidity-val,
+.sun-val,
+.discription-weather-val,
+.temp-val,
+.visibility-val,
+.temp-min-val {
+    margin-bottom: 1.5rem;
+}
+
+
+/*
+? Attractions Card style
+*/
 
 .container {
     display: flex;

@@ -20,7 +20,7 @@ The Web app should be able to:
 
 ### Built with
 
-- Mobile first workflos
+- Mobile first workflow
 - responsive Design
 - HTML
 - CSS

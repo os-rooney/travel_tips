@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
 ini_set('display_errors', 0);
+include 'helper_functions.php';
 
 // import api keys and Client Secrets
 include 'apis.php';
@@ -16,22 +17,58 @@ $openWeather = $weatherUrl. '?&q='.$city.'&APPID='.$openWeatherKey;
 /* ***********************************
 OpenWeather API call and show Results
 ************************************ */
+// Create a new CURL forsquare resource 
 $ow = curl_init();
 
-// set the URL and other options
+// set URL
 curl_setopt_array($ow, array(
-    
+    CURLOPT_URL => $openWeather,
+    CURLOPT_CUSTOMREQUEST => 'GET',
+    CURLOPT_RETURNTRANSFER => TRUE,
 ));
 
+// execute and pass the result to browser
+$owresult = json_decode(curl_exec($ow));
+// close the CURL resource
+curl_close($ow);
 
+// save results
+$temp = kelvinToCelsius($owresult->main->temp) . "&deg;";
+$feelsLike = kelvinToCelsius($owresult->main->feels_like). "&deg;";
+$tempMin = kelvinToCelsius($owresult->main->temp_min) . "&deg;";
+$tempMax = kelvinToCelsius($owresult->main->temp_max) . "&deg;";
+$humidity = $owresult->main->humidity . ' / ' . humidity($owresult->main->humidity);
+$sunrise= date('H:i', $owresult->sys->sunrise);
+$sunset= date('H:i', $owresult->sys->sunset);
+$visibility = VisibilitySignificance($owresult->visibility);
+$mainWeather =  $owresult->weather[0]->main;
+$discWeather = $owresult->weather[0]->description;
 
+if($owresult){
+    echo '<h2 class="weather">Weather Report</h2>';
+    echo '<div class="weather-card">';
+    echo '<h4>Actuell weather report of ' . $city . '</h4>';
+    echo '<div class="main-weather-val">'. $mainWeather .'</div>';
+    echo '<div class="discription-weather-val">'. $discWeather .'</div>';
+    echo '<div class="temp">temperature / feels like: </div>';
+    echo '<div class="temp-val">'. $temp . ' / '. $feelsLike .'</div>';
+    echo '<div class="temp-min-max">min./max. temperature:</div>';
+    echo '<div class="temp-min-val">'. $tempMin . ' / ' . $tempMax .'</div>';
+    echo '<div class="humidity">humidity:</div>';
+    echo '<div class="humidity-val">'. $humidity .'</div>';
+    echo '<div class="sun">sunrise / sunset:</div>';
+    echo '<div class="sun-val">'. $sunrise . ' / ' . $sunset .'</div>';
+    echo '<div class="visibility">visibility:</div>';
+    echo '<div class="visibility-val">'. $visibility .'</div>';
 
+    echo '</div>';
 
+}
 
 /* ***********************************
 Foursquare API call and show Results
 ************************************ */
-// create a new cURL foursquare resource
+// create a new CURL foursquare resource
 $fq = curl_init();
 
 // set the URL and other options
@@ -43,7 +80,7 @@ curl_setopt_array($fq, array(
 
 // execute and pass the result to browser
 $fqresult = json_decode(curl_exec($fq));
-// close the cURL resource
+// close the CURL resource
 curl_close($fq);
 
 // check for empty results
