@@ -10,7 +10,8 @@ The Web app should be able to:
 
 ### Continued Development
 
-- Show Weather informations
+- Better design for weather report
+- Show covid-19 incidence rate by country
 - Save user input to obtain statistics. e.g. the top 3 cities searched for.
 
 ### Useful resources
