@@ -60,9 +60,7 @@ if($owresult){
     echo '<div class="sun-val">'. $sunrise . ' / ' . $sunset .'</div>';
     echo '<div class="visibility">visibility:</div>';
     echo '<div class="visibility-val">'. $visibility .'</div>';
-
     echo '</div>';
-
 }
 
 /* ***********************************
