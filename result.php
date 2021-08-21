@@ -14,6 +14,14 @@ $foursquare = $url.$city.'&limit=10&client_id='.$clientId.'&client_secret='.$cli
 $weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
 $openWeather = $weatherUrl. '?&q='.$city.'&APPID='.$openWeatherKey;
 
+
+
+
+
+
+
+
+
 /* ***********************************
 OpenWeather API call and show Results
 ************************************ */
@@ -44,12 +52,14 @@ $visibility = VisibilitySignificance($owresult->visibility);
 $mainWeather =  $owresult->weather[0]->main;
 $discWeather = $owresult->weather[0]->description;
 $country = $owresult->sys->country;
+$countryName = getCountry($country);
 
 if($owresult){
+    echo '<div class="wrapper">';
     echo '<div class="weather">';
     echo '<h2 class="weather">Weather Report</h2>';
     echo '<div class="weather-card">';
-    echo '<h4>Actuell weather report of ' . $city .'</h4>';
+    echo '<h4>Actuell weather report of ' . $city . ' / '. $countryName . '</h4>';
     echo '<div class="weather-info">';
     echo '<div class="main-weather-val bold">'. $mainWeather .'</div>';
     echo '<div class="discription-weather-val">'. $discWeather .'</div>';
@@ -64,7 +74,42 @@ if($owresult){
     echo '<div class="visibility">visibility:</div>';
     echo '<div class="visibility-val">'. $visibility .'</div>';
     echo '</div>';
+     // end ofweather-card
     echo '</div>';
+    // end of weather class
+    echo '</div>';
+
+    // covid19api
+    $covidUrl = 'https://api.covid19api.com/total/country/' . $countryName . '/status/confirmed';
+    $cov = curl_init();
+    curl_setopt_array($cov, array(
+        CURLOPT_URL => $covidUrl,
+        CURLOPT_CUSTOMREQUEST => 'GET',
+        CURLOPT_RETURNTRANSFER => TRUE,
+    ));
+    $covidResult = json_decode(curl_exec($cov));
+    curl_close($cov);
+    $days = count($covidResult);
+    $casesActuell = $covidResult[$days - 1]->Cases - $covidResult[$days - 2]->Cases;
+    $date = new DateTime($covidResult[$days - 1]->Date);
+    $lastUpdate = $date->format('H:i, Y-m-d'); 
+
+    if($casesActuell > 0){
+       $casesSpanClass = "danger";
+    } else {
+       $casesSpanClass = "success"; 
+    }
+
+    echo '<div class="covid-container">';
+    echo '<h4>Actuell Covid19 Cases</h4>';
+    echo '<div class="covid">';
+    echo '<div class="cases">actuell cases: <span class="'. $casesSpanClass .'">'. $casesActuell .'</span></div>';
+    echo '<div class="lastupdate">last updated: '. $lastUpdate .'</div>';
+    echo '</div>';
+    echo '</div>';
+
+    
+    // end of wrapper class
     echo '</div>';
 }
 
@@ -109,3 +154,5 @@ if($fqresult && count((array)$fqresult->response->groups[0]->items) > 0){
     $_SESSION['message'] = 'Incorrect input. Enter the name of a city correctly in English.';
     $_SESSION['msg_type'] = 'failure';
 }
+
+

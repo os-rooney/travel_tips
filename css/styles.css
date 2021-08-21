@@ -137,6 +137,39 @@ h2.weather {
 
 
 /*
+? Covid19 info Styles
+*/
+
+.covid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #403949;
+    color: #EEEDED;
+    width: 90vw;
+    position: relative;
+    padding: 1rem;
+    box-shadow: 2px 3px 4px #555555;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 2px 3px 4px #555555;
+}
+
+.covid-container h4 {
+    padding-bottom: 1rem;
+}
+
+.danger {
+    color: #bd5858;
+}
+
+.success {
+    color: #7FC8A9;
+}
+
+
+/*
 ? Attractions Card style
 */
 
@@ -235,6 +268,9 @@ h2.weather {
         width: 75%;
         bottom: 1rem;
     }
+    .covid-container {
+        width: 45vw;
+    }
 }
 
 
@@ -273,5 +309,8 @@ h2.weather {
     }
     .top-att-text {
         font-size: 2rem;
+    }
+    .covid-container {
+        width: 25vw;
     }
 }

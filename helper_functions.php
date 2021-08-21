@@ -26,3 +26,29 @@ function humidity($val){
     };
     return $result;
 }
+
+// ? get the country name from the iso2 result of openweather
+function getCountry($val){
+    $countryURL = 'https://api.covid19api.com/countries';
+        // Create a new CURL to get country name from its ISO2 form covid19api
+        $country = curl_init();
+
+        // set URL
+        curl_setopt_array($country, array(
+            CURLOPT_URL => $countryURL,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_RETURNTRANSFER => TRUE,
+        ));
+
+        // execute and pass the result to browser
+        $countryResult = json_decode(curl_exec($country));
+        // close the CURL resource
+        curl_close($country);
+        foreach($countryResult as $res){
+            if($val == $res->ISO2){
+                return $countryName =  $res->Country;
+            }
+        }
+
+
+}
