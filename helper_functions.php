@@ -1,11 +1,11 @@
 <?php
-// ? Convert Kelvin to Celsius 🤣
+// ? Convert Kelvin to Celsius
 function kelvinToCelsius($klevin){
     $celsius = $klevin - 273.15;
     return (int)$celsius;
 }
 
-// ? convert Visibility Value to a Weather condition / human readable 🤐
+// ? convert Visibility Value to a Weather condition / human readable
 function VisibilitySignificance($val){
     $result = match(true){
         $val <= 1000 => 'Light fog',

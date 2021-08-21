@@ -78,6 +78,10 @@ h1 {
     text-align: center;
 }
 
+.bold {
+    font-weight: 700;
+}
+
 
 /*
 ? Weather Card Styles
@@ -94,7 +98,7 @@ h2.weather {
 .weather-card {
     background-color: #403949;
     color: #EEEDED;
-    width: 75vw;
+    width: 90vw;
     position: relative;
     padding: 1rem;
     box-shadow: 2px 3px 4px #555555;
@@ -108,6 +112,14 @@ h2.weather {
     font-size: 1rem;
     letter-spacing: 0.05rem;
     margin-bottom: 1rem;
+}
+
+.weather-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    letter-spacing: .1rem;
 }
 
 .main-weather-val {
@@ -193,6 +205,9 @@ h2.weather {
 */
 
 @media screen and (min-width: 25em) {
+    .weather-card {
+        width: 45vw;
+    }
     .container {
         display: flex;
         flex-direction: row;
@@ -244,6 +259,9 @@ h2.weather {
         margin-top: 1.4rem;
         margin-left: 50%;
         transform: translateX(-50%);
+    }
+    .weather-card {
+        width: 25vw;
     }
     .container {
         justify-content: center;

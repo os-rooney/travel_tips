@@ -41,15 +41,6 @@ session_start();
         </div>
     </form>
 
-    <!-- Show venues -->
-    <div class="container">
-        <?php 
-            if(isset($city)){
-                include 'result.php';
-            }
-        ?>
-    </div>
-
 
     <!-- formatting/Styling the error message -->
     <?php if(isset($_SESSION['message'])): ?>
@@ -60,6 +51,15 @@ session_start();
                     unset($_SESSION['message']);
                 ?>
             </p>
+        </div>
+    <?php else: ?>
+        <!-- Show venues -->
+        <div class="container">
+            <?php 
+                if(isset($city)){
+                    include 'result.php';
+                }
+            ?>
         </div>
     <?php endif; ?>
   </body>

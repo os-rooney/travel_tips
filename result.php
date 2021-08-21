@@ -43,23 +43,28 @@ $sunset= date('H:i', $owresult->sys->sunset);
 $visibility = VisibilitySignificance($owresult->visibility);
 $mainWeather =  $owresult->weather[0]->main;
 $discWeather = $owresult->weather[0]->description;
+$country = $owresult->sys->country;
 
 if($owresult){
+    echo '<div class="weather">';
     echo '<h2 class="weather">Weather Report</h2>';
     echo '<div class="weather-card">';
-    echo '<h4>Actuell weather report of ' . $city . '</h4>';
-    echo '<div class="main-weather-val">'. $mainWeather .'</div>';
+    echo '<h4>Actuell weather report of ' . $city .'</h4>';
+    echo '<div class="weather-info">';
+    echo '<div class="main-weather-val bold">'. $mainWeather .'</div>';
     echo '<div class="discription-weather-val">'. $discWeather .'</div>';
     echo '<div class="temp">temperature / feels like: </div>';
-    echo '<div class="temp-val">'. $temp . ' / '. $feelsLike .'</div>';
+    echo '<div class="temp-val bold">'. $temp . ' / '. $feelsLike .'</div>';
     echo '<div class="temp-min-max">min./max. temperature:</div>';
-    echo '<div class="temp-min-val">'. $tempMin . ' / ' . $tempMax .'</div>';
+    echo '<div class="temp-min-val bold">'. $tempMin . ' / ' . $tempMax .'</div>';
     echo '<div class="humidity">humidity:</div>';
     echo '<div class="humidity-val">'. $humidity .'</div>';
     echo '<div class="sun">sunrise / sunset:</div>';
-    echo '<div class="sun-val">'. $sunrise . ' / ' . $sunset .'</div>';
+    echo '<div class="sun-val bold">'. $sunrise . ' / ' . $sunset .'</div>';
     echo '<div class="visibility">visibility:</div>';
     echo '<div class="visibility-val">'. $visibility .'</div>';
+    echo '</div>';
+    echo '</div>';
     echo '</div>';
 }
 
