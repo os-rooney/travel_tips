@@ -232,6 +232,20 @@ h2.weather {
     text-decoration: underline;
 }
 
+.gmaps-covid a {
+    background-color: #bd5858;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #EEEDED;
+    font-weight: 900;
+    padding: 0.625rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+}
+
 
 /*
 ? Style for Screens wider than 400px

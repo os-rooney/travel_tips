@@ -89,8 +89,12 @@ if($owresult){
     ));
     $covidResult = json_decode(curl_exec($cov));
     curl_close($cov);
+    // Google Button for more informations about covid-19 cases
+    $googleURL = 'https://www.google.com/search?q=covid-19+cases+'. $countryName;
+
     $days = count($covidResult);
-    $casesActuell = $covidResult[$days - 1]->Cases - $covidResult[$days - 2]->Cases;
+    $casesActuell = number_format($covidResult[$days - 1]->Cases - $covidResult[$days - 2]->Cases);
+    $totalCases = number_format($covidResult[$days - 1]->Cases);
     $date = new DateTime($covidResult[$days - 1]->Date);
     $lastUpdate = $date->format('H:i, Y-m-d'); 
 
@@ -100,15 +104,18 @@ if($owresult){
        $casesSpanClass = "success"; 
     }
 
+
     echo '<div class="covid-container">';
-    echo '<h4>Actuell Covid19 Cases</h4>';
+    echo '<h4>Actuell Covid-19 Cases in '. $countryName .'</h4>';
     echo '<div class="covid">';
-    echo '<div class="cases">actuell cases: <span class="'. $casesSpanClass .'">'. $casesActuell .'</span></div>';
-    echo '<div class="lastupdate">last updated: '. $lastUpdate .'</div>';
+    echo '<div class="cases">new cases: <span class="'. $casesSpanClass .'">'. $casesActuell .'</span></div>';
+    echo '<div class="cases">total cases: <span class="danger">'. $totalCases .'</span></div>';
+    echo '<div class="lastupdate">last update: '. $lastUpdate .'</div>';
+    echo'<p class="gmaps-covid"><a href='. $googleURL . ' target=_blank>More details on Google</a></p>';
     echo '</div>';
     echo '</div>';
 
-    
+
     // end of wrapper class
     echo '</div>';
 }
