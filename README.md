@@ -23,10 +23,10 @@ The Web app should be able to:
 ### Built with
 
 - Mobile first workflow
-- responsive Design
+- Responsive Design
+- PHP
 - HTML
 - CSS
-- PHP
 
 ## Author
 
